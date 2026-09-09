@@ -11,11 +11,12 @@
 collection.json          卡牌总目录，决定展馆里的顺序与文案
 cards/<slug>/card.json   单张卡牌的配置：正面图层、背面文字、景深参数
 cards/<slug>/assets/     该卡牌的图层素材与浮雕数据
-dist/                    构建产物，GitHub Pages 直接发布这一层
-.github/workflows/       推送到 main 后自动部署
+docs/                    构建产物，GitHub Pages 直接发布这一层
 ```
 
-`dist/` 是提交进仓库的构建结果，不是临时目录——工作流上传的就是它。改完源文件后必须重新构建再提交。
+`docs/` 是提交进仓库的构建结果，不是临时目录——Pages 服务的就是它。改完源文件后必须重新构建再提交，否则线上还是旧版本。
+
+发布方式是「Deploy from a branch → main → /docs」，没有 Actions 工作流，推送后约一分钟生效。
 
 ## 新增一张卡牌
 
@@ -34,14 +35,16 @@ python scripts/build_collection.py --collection . --base-url https://mccrree.git
 python scripts/validate_collection.py .
 ```
 
+第一步清除抠图残留的背景色——绿幕溢色会留在半透明边缘和发丝上，平面合成时几乎看不出来，但浮雕着色器一做 UV 偏移就会被拖出来。第二步必须在它之后，因为高度图是从主体亮度推导的。
+
 已发布卡牌的地址不受新增影响。
 
 ## 本地预览
 
-`dist/` 是纯静态站点，任意静态服务器都能跑。`file://` 打开会因为跨域限制读不到 `card.json`。
+`docs/` 是纯静态站点，任意静态服务器都能跑。`file://` 打开会因为跨域限制读不到 `card.json`。
 
 ```bash
-python -m http.server 4190 --bind 127.0.0.1 --directory dist
+python -m http.server 4190 --bind 127.0.0.1 --directory docs
 ```
 
 ## 素材归属
