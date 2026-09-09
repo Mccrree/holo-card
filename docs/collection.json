@@ -15,6 +15,15 @@
       "href": "./asuka/",
       "thumbnail": "./thumbnails/asuka.jpg",
       "accent": "#ff4a2f"
+    },
+    {
+      "slug": "xiaolv-asuka",
+      "title": "Crimson Appearance",
+      "subtitle": "Asuka Langley Soryu",
+      "description": "小绿老师出镜的互动 2.5D 全息纪念卡",
+      "href": "./xiaolv-asuka/",
+      "thumbnail": "./thumbnails/xiaolv-asuka.jpg",
+      "accent": "#f08a62"
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "name": "Crimson Appearance",
+  "short_name": "Crimson Appearance",
+  "description": "An interactive 2.5D holographic profile card inspired by Asuka Langley Soryu.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a080c",
+  "theme_color": "#0a080c",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

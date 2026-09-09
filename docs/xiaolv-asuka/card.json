@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "lang": "zh-CN",
+    "title": "Crimson Appearance",
+    "description": "An interactive 2.5D holographic profile card inspired by Asuka Langley Soryu.",
+    "siteUrl": "https://mccrree.github.io/holo-card/xiaolv-asuka/",
+    "shareImage": "./assets/share.jpg",
+    "themeColor": "#0a080c",
+    "collectionUrl": "../"
+  },
+  "front": {
+    "background": "./assets/background.png",
+    "subject": "./assets/subject.png",
+    "heightMap": "./assets/subject-height.png",
+    "normalMap": "./assets/subject-normal.png",
+    "lineart": "",
+    "overlay": "./assets/text.png",
+    "alt": "橙红色双马尾造型、手持红色发光长剑的小绿老师出镜纪念卡",
+    "eyebrow": "",
+    "title": "",
+    "subtitle": "",
+    "showLabels": false
+  },
+  "back": {
+    "eyebrow": "NERV PERSONNEL ARCHIVE",
+    "title": "ASUKA LANGLEY SORYU",
+    "body": "A gifted pilot defined by fierce confidence, relentless ambition, and a refusal to disappear into the background. Asuka meets every challenge head-on, turning pride into armor and motion into spectacle. Beneath the brilliant red is a deeply human need to be seen, understood, and remembered.",
+    "signature": "",
+    "number": "SECOND CHILD / 02",
+    "accent": "#f08a62",
+    "background": "./assets/background.png",
+    "image": "./assets/back-signature.png",
+    "facts": [
+      {
+        "label": "DESIGNATION",
+        "value": "SECOND CHILD"
+      },
+      {
+        "label": "ASSIGNED UNIT",
+        "value": "EVA-02"
+      },
+      {
+        "label": "ORIGIN",
+        "value": "GERMANY"
+      },
+      {
+        "label": "PROFILE",
+        "value": "PROUD / FEARLESS"
+      }
+    ],
+    "links": []
+  },
+  "effects": {
+    "maxTilt": 13,
+    "backgroundDepth": -24,
+    "subjectDepth": 58,
+    "lineDepth": 58,
+    "overlayDepth": 66,
+    "reliefStrength": 0.02,
+    "foil": 0.62,
+    "glare": 0.42,
+    "spring": 0.13,
+    "damping": 0.81
+  }
+}
