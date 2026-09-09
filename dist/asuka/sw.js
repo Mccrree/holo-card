@@ -1,4 +1,4 @@
-const CACHE = "holo-card-f84573b658d7";
+const CACHE = "holo-card-33774e12aebb";
 const CORE = ["./", "./index.html", "./styles.css", "./app.js", "./card.json", "./manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

@@ -287,18 +287,42 @@ async function createRelief(config) {
     uniform float uRelief;
     uniform float uTime;
 
+    const int RELIEF_STEPS = 12;
+
     void main() {
-      vec2 direction = vec2(uPointer.x, -uPointer.y) * uRelief;
+      // Clamping each axis to [-1,1] separately lets a corner reach sqrt(2) of the
+      // configured offset, so normalise the vector instead of the components.
+      vec2 aim = vec2(uPointer.x, -uPointer.y);
+      float reach = length(aim);
+      if (reach > 1.0) aim /= reach;
+      vec2 direction = aim * uRelief;
+
+      float stepSize = 1.0 / float(RELIEF_STEPS);
       vec2 uv = vUv;
-      float best = 0.0;
-      for (int i = 0; i < 16; i++) {
-        float layer = float(i) / 15.0;
+      float best = texture(uHeight, vUv).r;
+      vec2 previousUv = vUv;
+      float previousLayer = 0.0;
+      float previousHeight = best;
+
+      for (int i = 1; i <= RELIEF_STEPS; i++) {
+        float layer = float(i) * stepSize;
         vec2 candidate = vUv - direction * layer;
         float height = texture(uHeight, candidate).r;
-        if (height >= layer) {
-          uv = candidate;
-          best = height;
+        if (height < layer) {
+          // Interpolate the crossing instead of snapping to a step. Without this
+          // the discrete layers show up as comb banding once the offset is large.
+          float above = previousHeight - previousLayer;
+          float below = height - layer;
+          float t = above / max(1e-4, above - below);
+          uv = mix(previousUv, candidate, t);
+          best = mix(previousHeight, height, t);
+          break;
         }
+        previousUv = candidate;
+        previousLayer = layer;
+        previousHeight = height;
+        uv = candidate;
+        best = height;
       }
       if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) discard;
       vec4 albedo = texture(uSubject, uv);
@@ -310,10 +334,10 @@ async function createRelief(config) {
       vec3 lightDirection = normalize(vec3(uPointer.x * 0.9, -uPointer.y * 0.9, 1.15));
       float diffuse = max(dot(normal, lightDirection), 0.0);
       vec3 halfVector = normalize(lightDirection + vec3(0.0, 0.0, 1.0));
-      float specular = pow(max(dot(normal, halfVector), 0.0), 30.0);
-      float edgeLift = smoothstep(0.18, 0.9, best) * 0.12;
+      float specular = pow(max(dot(normal, halfVector), 0.0), 34.0);
+      float edgeLift = smoothstep(0.18, 0.9, best) * 0.09;
       float pulse = 0.5 + 0.5 * sin(uTime * 0.7 + uv.y * 8.0);
-      vec3 lit = albedo.rgb * (0.66 + diffuse * 0.46 + edgeLift) + specular * (0.18 + pulse * 0.07);
+      vec3 lit = albedo.rgb * (0.72 + diffuse * 0.34 + edgeLift) + specular * (0.13 + pulse * 0.05);
       outColor = vec4(lit, albedo.a);
     }
   `;
@@ -361,7 +385,7 @@ async function createRelief(config) {
   function resize() {
     const rect = reliefCanvas.getBoundingClientRect();
     const dpr = Math.min(devicePixelRatio || 1, 2);
-    const scale = Math.min(1, Math.sqrt(1_300_000 / Math.max(1, rect.width * rect.height * dpr * dpr)));
+    const scale = Math.min(1, Math.sqrt(3_000_000 / Math.max(1, rect.width * rect.height * dpr * dpr)));
     const width = Math.max(1, Math.round(rect.width * dpr * scale));
     const height = Math.max(1, Math.round(rect.height * dpr * scale));
     if (reliefCanvas.width !== width || reliefCanvas.height !== height) {
