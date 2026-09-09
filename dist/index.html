@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#08070a">
+    <meta name="description" content="可通过鼠标或手指探索的互动 2.5D 全息卡牌展馆">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HOLO CARD">
+    <meta property="og:description" content="可通过鼠标或手指探索的互动 2.5D 全息卡牌展馆">
+    <meta property="og:url" content="https://mccrree.github.io/holo-card/">
+    <meta property="og:image" content="https://mccrree.github.io/holo-card/share.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://mccrree.github.io/holo-card/">
+    <link rel="icon" href="./icon-192.png">
+    <link rel="apple-touch-icon" href="./icon-192.png">
+    <link rel="stylesheet" href="./gallery.css">
+    <title>HOLO CARD</title>
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <main class="collection-shell">
+      <header class="collection-header">
+        <p class="kicker">INTERACTIVE ARCHIVE</p>
+        <h1 id="collectionTitle">HOLO CARD</h1>
+        <p class="description" id="collectionDescription">可通过鼠标或手指探索的互动 2.5D 全息卡牌展馆</p>
+      </header>
+      <section class="card-grid" id="cardGrid" aria-label="卡牌目录" aria-busy="true"></section>
+      <p class="status" id="status" role="status">正在读取卡牌目录…</p>
+    </main>
+    <template id="cardTemplate">
+      <a class="gallery-card">
+        <div class="poster-wrap">
+          <img class="poster" alt="" loading="lazy">
+          <div class="poster-shine" aria-hidden="true"></div>
+          <span class="open-mark" aria-hidden="true">↗</span>
+        </div>
+        <div class="card-copy">
+          <h2></h2>
+          <p class="subtitle"></p>
+          <p class="summary"></p>
+        </div>
+      </a>
+    </template>
+    <script type="module" src="./gallery.js"></script>
+  </body>
+</html>

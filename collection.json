@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "lang": "zh-CN",
+    "title": "HOLO CARD",
+    "description": "可通过鼠标或手指探索的互动 2.5D 全息卡牌展馆",
+    "siteUrl": "https://mccrree.github.io/holo-card/",
+    "themeColor": "#08070a"
+  },
+  "cards": [
+    {
+      "slug": "asuka",
+      "title": "Asuka",
+      "subtitle": "Second Children",
+      "description": "红色光剑、动态浮雕与全息箔效果的互动角色卡",
+      "published": true
+    }
+  ]
+}

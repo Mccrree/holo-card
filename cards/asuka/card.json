@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "lang": "zh-CN",
+    "title": "Asuka · Interactive Holographic Card",
+    "description": "一张可用鼠标或手指探索、翻面的 2.5D 全息明日香典藏卡。",
+    "siteUrl": "https://mccrree.github.io/holo-card/asuka/",
+    "shareImage": "./assets/share.jpg",
+    "themeColor": "#090607"
+  },
+  "front": {
+    "background": "./assets/background.png",
+    "subject": "./assets/subject.png",
+    "heightMap": "./assets/subject-height.png",
+    "normalMap": "./assets/subject-normal.png",
+    "lineart": "",
+    "overlay": "./assets/text.png",
+    "alt": "手持红色光剑、橙红色双马尾造型的明日香角色卡",
+    "eyebrow": "NEON GENESIS EVANGELION",
+    "title": "ASUKA",
+    "subtitle": "SECOND CHILDREN",
+    "showLabels": false
+  },
+  "back": {
+    "eyebrow": "NERV PERSONNEL ARCHIVE",
+    "title": "惣流·明日香·兰格雷",
+    "body": "骄傲是她的铠甲，热烈是她的颜色。她把每一次出击都当成证明自己的舞台，也把不肯说出口的脆弱藏在最耀眼的红色之后。",
+    "signature": "Asuka Langley",
+    "number": "02 / TEST TYPE",
+    "accent": "#ff4a2f",
+    "background": "./assets/background.png",
+    "image": "",
+    "facts": [
+      {
+        "label": "UNIT",
+        "value": "EVA-02"
+      },
+      {
+        "label": "ROLE",
+        "value": "PILOT"
+      },
+      {
+        "label": "COLOR",
+        "value": "SIGNAL RED"
+      },
+      {
+        "label": "STATUS",
+        "value": "READY"
+      }
+    ],
+    "links": []
+  },
+  "effects": {
+    "maxTilt": 13,
+    "backgroundDepth": -24,
+    "subjectDepth": 56,
+    "lineDepth": 58,
+    "overlayDepth": 62,
+    "reliefStrength": 0.085,
+    "foil": 0.72,
+    "glare": 0.5,
+    "spring": 0.13,
+    "damping": 0.81
+  }
+}

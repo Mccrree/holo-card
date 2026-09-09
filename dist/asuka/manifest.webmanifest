@@ -1,0 +1,22 @@
+{
+  "name": "Asuka · Interactive Holographic Card",
+  "short_name": "Asuka · Interactiv",
+  "description": "一张可用鼠标或手指探索、翻面的 2.5D 全息明日香典藏卡。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090607",
+  "theme_color": "#090607",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

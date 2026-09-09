@@ -1,0 +1,4 @@
+cards/*/dist/
+verification/
+__pycache__/
+*.pyc

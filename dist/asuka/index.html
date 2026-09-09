@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#090607">
+    <meta name="description" content="一张可用鼠标或手指探索、翻面的 2.5D 全息明日香典藏卡。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Asuka · Interactive Holographic Card">
+    <meta property="og:description" content="一张可用鼠标或手指探索、翻面的 2.5D 全息明日香典藏卡。">
+    <meta property="og:url" content="https://mccrree.github.io/holo-card/asuka/">
+    <meta property="og:image" content="https://mccrree.github.io/holo-card/asuka/assets/share.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asuka · Interactive Holographic Card">
+    <meta name="twitter:description" content="一张可用鼠标或手指探索、翻面的 2.5D 全息明日香典藏卡。">
+    <meta name="twitter:image" content="https://mccrree.github.io/holo-card/asuka/assets/share.jpg">
+    <link rel="canonical" href="https://mccrree.github.io/holo-card/asuka/">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./assets/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Asuka · Interactive Holographic Card</title>
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+    <main class="showcase" id="app" aria-busy="true">
+      <section
+        class="card-stage"
+        id="cardStage"
+        tabindex="0"
+        role="button"
+        aria-label="拖动查看立体效果，轻点翻转卡牌"
+        aria-pressed="false"
+      >
+        <div class="card-rotator" id="cardRotator">
+          <article class="card-face card-front" aria-label="卡牌正面">
+            <img class="layer layer-background" id="frontBackground" alt="">
+            <div class="layer depth-vignette" aria-hidden="true"></div>
+            <img class="layer subject-contact" id="subjectContact" alt="" aria-hidden="true">
+            <img class="layer subject-fallback" id="subjectFallback" alt="">
+            <canvas class="layer subject-relief" id="reliefCanvas" aria-hidden="true"></canvas>
+            <img class="layer layer-lineart" id="frontLineart" alt="" aria-hidden="true">
+            <div class="layer foil" aria-hidden="true"></div>
+            <div class="layer foil-spark" aria-hidden="true"></div>
+            <img class="layer layer-overlay" id="frontOverlay" alt="" aria-hidden="true">
+            <header class="front-copy" id="frontCopy">
+              <p id="frontEyebrow"></p>
+              <h1 id="frontTitle"></h1>
+              <p id="frontSubtitle"></p>
+            </header>
+            <div class="layer glare" aria-hidden="true"></div>
+            <div class="face-rim" aria-hidden="true"></div>
+          </article>
+
+          <article class="card-face card-back" aria-label="卡牌背面">
+            <img class="back-background" id="backBackground" alt="" aria-hidden="true">
+            <div class="back-atmosphere" aria-hidden="true"></div>
+            <div class="back-content">
+              <p class="back-eyebrow" id="backEyebrow"></p>
+              <p class="back-number" id="backNumber"></p>
+              <h2 id="backTitle"></h2>
+              <div class="back-rule" aria-hidden="true"></div>
+              <p class="back-body" id="backBody"></p>
+              <dl class="back-facts" id="backFacts"></dl>
+              <img class="back-image" id="backImage" alt="">
+              <nav class="back-links" id="backLinks" aria-label="卡牌链接"></nav>
+              <p class="back-signature" id="backSignature"></p>
+            </div>
+            <div class="back-orbit" aria-hidden="true"></div>
+            <div class="face-rim" aria-hidden="true"></div>
+          </article>
+        </div>
+      </section>
+
+      <div class="card-actions" aria-label="卡牌操作">
+        <a id="galleryLink" href="../" hidden>展馆</a>
+        <button type="button" id="resetButton">归位</button>
+        <button type="button" id="flipButton">翻到背面</button>
+      </div>
+      <p class="gesture-hint" id="gestureHint">拖动卡牌看浮雕 · 轻点翻面</p>
+      <p class="status" id="status" role="status">正在装载卡牌…</p>
+    </main>
+    <noscript>这张互动卡牌需要启用 JavaScript。</noscript>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
